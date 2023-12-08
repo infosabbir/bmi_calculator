@@ -10,6 +10,13 @@ const txtValueStyle = TextStyle(
   fontSize: 40,
 );
 
+const txtResultStyle = TextStyle(
+  letterSpacing: 1.2,
+  fontSize: 25,
+  fontWeight: FontWeight.bold,
+  color: Colors.white,
+);
+
 abstract final class BMI {
   static const String underWeightSevere = 'Underweight (Severe thinnes)';
   static const String underWeightModerate = 'Underweight (Moderate thinnes)';
@@ -19,10 +26,11 @@ abstract final class BMI {
   static const String obese_1 = 'Obese (Class I)';
   static const String obese_2 = 'Obese (Class II)';
   static const String obese_3 = 'Obese (Class III)';
-
-
 }
 
 enum BmiUnit {
-  m, ft, kg, lb,
+  m,
+  ft,
+  kg,
+  lb,
 }
