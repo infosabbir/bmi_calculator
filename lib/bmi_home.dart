@@ -15,6 +15,16 @@ class _BmiHomeState extends State<BmiHome> {
   double bmi = 0.0;
   Color color = Colors.green;
 
+  _updateBmi() {
+    bmi = weightValue / (heightValue * heightValue);
+  }
+
+  @override
+  void initState() {
+    _updateBmi();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,6 +45,7 @@ class _BmiHomeState extends State<BmiHome> {
               setState(() {
                 heightValue = newValue;
               });
+              _updateBmi();
             },
           ),
           BmiSlider(
@@ -48,12 +59,15 @@ class _BmiHomeState extends State<BmiHome> {
               setState(() {
                 weightValue = newValue;
               });
+              _updateBmi();
             },
           ),
-          BmiResult(
-            color: color,
-            bmi: bmi,
-            status: status,
+          Expanded(
+            child: BmiResult(
+              color: color,
+              bmi: bmi,
+              status: status,
+            ),
           ),
         ],
       ),
