@@ -24,11 +24,13 @@ class BmiProvider extends ChangeNotifier {
   changeHeight(double value) {
     _heightValue = value;
     _updateBmi();
+    notifyListeners();
   }
 
   changeWeight(double value) {
     _weightValue = value;
     _updateBmi();
+    notifyListeners();
   }
 
   _updateBmi() {

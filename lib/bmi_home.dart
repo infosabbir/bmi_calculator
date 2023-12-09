@@ -1,5 +1,7 @@
+import 'package:bmi_calculator/bmi_provider.dart';
 import 'package:bmi_calculator/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class BmiHome extends StatefulWidget {
   const BmiHome({super.key});
@@ -9,7 +11,6 @@ class BmiHome extends StatefulWidget {
 }
 
 class _BmiHomeState extends State<BmiHome> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,33 +20,38 @@ class _BmiHomeState extends State<BmiHome> {
       ),
       body: Column(
         children: [
-          BmiSlider(
-            label: 'Height',
-            unit: BmiUnit.m,
-            sliderValue: heightValue,
-            sliderDivision: 100,
-            sliderMax: 2.2,
-            sliderMin: 1.2,
-            onChange: (newValue) {
-
-            }
+          Consumer<BmiProvider>(
+            builder: (context, provider, child) => BmiSlider(
+                label: 'Height',
+                unit: BmiUnit.m,
+                sliderValue: provider.heigtValue,
+                sliderDivision: 100,
+                sliderMax: 2.2,
+                sliderMin: 1.2,
+                onChange: (newValue) {
+                  provider.changeHeight(newValue);
+                }),
           ),
-          BmiSlider(
-            label: 'Weight',
-            unit: BmiUnit.kg,
-            sliderValue: weightValue,
-            sliderDivision: 200,
-            sliderMax: 130,
-            sliderMin: 30,
-            onChange: (newValue) {
-              
-            },
+          Consumer<BmiProvider>(
+            builder: (context, provider, child) => BmiSlider(
+              label: 'Weight',
+              unit: BmiUnit.kg,
+              sliderValue: provider.weightValue,
+              sliderDivision: 200,
+              sliderMax: 130,
+              sliderMin: 30,
+              onChange: (newValue) {
+                provider.changeWeight(newValue);
+              },
+            ),
           ),
           Expanded(
-            child: BmiResult(
-              color: color,
-              bmi: bmi,
-              status: status,
+            child: Consumer<BmiProvider>(
+              builder: (context, provider, child) => BmiResult(
+                color: provider.color,
+                bmi: provider.bmi,
+                status: provider.status,
+              ),
             ),
           ),
         ],
