@@ -9,72 +9,6 @@ class BmiHome extends StatefulWidget {
 }
 
 class _BmiHomeState extends State<BmiHome> {
-  double heightValue = 1.5;
-  double weightValue = 50.0;
-  String status = '';
-  double bmi = 0.0;
-  Color color = Colors.green;
-
-  _updateBmi() {
-    bmi = weightValue / (heightValue * heightValue);
-    _updateStatus();
-    _updateColor();
-  }
-
-  _updateStatus() {
-    status = getStatus();
-  }
-
-  _updateColor() {
-    if (bmi < 16.0) {
-      color = Colors.green.shade100;
-    } else if (bmi >= 16.0 && bmi <= 16.9) {
-      color = Colors.green.shade200;
-    } else if (bmi >= 17.0 && bmi <= 18.4) {
-      color = Colors.green.shade300;
-    } else if (bmi >= 18.5 && bmi <= 24.9) {
-      color = Colors.green;
-    } else if (bmi >= 25.0 && bmi <= 29.9) {
-      color = Colors.red.shade200;
-    } else if (bmi >= 30.0 && bmi <= 34.9) {
-      color = Colors.red.shade300;
-    } else if (bmi >= 35.0 && bmi <= 39.9) {
-      color = Colors.red.shade400;
-    } else {
-      color = Colors.red.shade600;
-    }
-  }
-
-  String getStatus() {
-    if (bmi < 16.0) {
-      return BMI.underWeightSevere;
-    }
-    if (bmi >= 16.0 && bmi <= 16.9) {
-      return BMI.underWeightModerate;
-    }
-    if (bmi >= 17.0 && bmi <= 18.4) {
-      return BMI.underWeightMild;
-    }
-    if (bmi >= 18.5 && bmi <= 24.9) {
-      return BMI.normal;
-    }
-    if (bmi >= 25.0 && bmi <= 29.9) {
-      return BMI.overWeightPre;
-    }
-    if (bmi >= 30.0 && bmi <= 34.9) {
-      return BMI.obese_1;
-    }
-    if (bmi >= 35.0 && bmi <= 39.9) {
-      return BMI.obese_2;
-    }
-    return BMI.obese_3;
-  }
-
-  @override
-  void initState() {
-    _updateBmi();
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -93,11 +27,8 @@ class _BmiHomeState extends State<BmiHome> {
             sliderMax: 2.2,
             sliderMin: 1.2,
             onChange: (newValue) {
-              setState(() {
-                heightValue = newValue;
-              });
-              _updateBmi();
-            },
+
+            }
           ),
           BmiSlider(
             label: 'Weight',
@@ -107,10 +38,7 @@ class _BmiHomeState extends State<BmiHome> {
             sliderMax: 130,
             sliderMin: 30,
             onChange: (newValue) {
-              setState(() {
-                weightValue = newValue;
-              });
-              _updateBmi();
+              
             },
           ),
           Expanded(
