@@ -1,16 +1,19 @@
-# bmi_calculator
+<h1>Project Name: BMI Calculator.</h1>
 
-A new Flutter project.
+<p><b></b>Description:<b></b> This is a bmi calculator games. Where the provider is used. Which is good for state-management system.</p>
 
-## Getting Started
+<b>Resources:</b>
+<ol>
+<li>Flutter SDK( Software development kit).</li>
+<li>Visual Studio Code IDE.</li>
+<li>A virtual Android emulator.</li>
+<li>Dart Programming language, OOP concept.</li>
+</ol>
 
-This project is a starting point for a Flutter application.
+<h2>Apps screenshot below: </h2>
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<img src="https://github.com/infosabbir/bmi_calculator/assets/70373782/558b1537-dac1-404a-987f-82c7f282e4b3" width="150" alt="Screenshot 2">
+<img src="https://github.com/infosabbir/bmi_calculator/assets/70373782/521e715d-b1a7-4f11-81d5-12a8438d9894" width="150" alt="Screenshot 3">
+<img src="https://github.com/infosabbir/bmi_calculator/assets/70373782/f4891690-d607-44b4-b151-ca10ccb80b3c" width="150" alt="Screenshot 3">
