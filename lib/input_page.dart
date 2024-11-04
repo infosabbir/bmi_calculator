@@ -11,44 +11,79 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
+  Color maleCardColor = kInactiveCardColor;
+  Color femaleCardColor = kInactiveCardColor;
+
+  void updateColor(int gender) {
+    if (gender == 1) {
+      if (maleCardColor == kInactiveCardColor) {
+        maleCardColor = kActiveCardColor;
+        femaleCardColor = kInactiveCardColor;
+      } else {
+        maleCardColor = kInactiveCardColor;
+      }
+    } else {
+      if (femaleCardColor == kInactiveCardColor) {
+        femaleCardColor = kActiveCardColor;
+        maleCardColor = kInactiveCardColor;
+      } else {
+        femaleCardColor = kInactiveCardColor;
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('BMI CALCULATOR'),
       ),
-      body: const Column(
+      body: Column(
         children: [
           Expanded(
             child: Row(
               children: [
                 Expanded(
-                  child: ReusableCard(
-                    color: kActiveCardColor,
-                    cardChild: IconContent(
-                      icon: Icons.male,
-                      label: 'MALE',
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        updateColor(1);
+                      });
+                    },
+                    child: ReusableCard(
+                      color: maleCardColor,
+                      cardChild: const IconContent(
+                        icon: Icons.male,
+                        label: 'MALE',
+                      ),
                     ),
                   ),
                 ),
                 Expanded(
-                  child: ReusableCard(
-                    color: kActiveCardColor,
-                    cardChild: IconContent(
-                      icon: Icons.female,
-                      label: 'FEMALE',
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        updateColor(2);
+                      });
+                    },
+                    child: ReusableCard(
+                      color: femaleCardColor,
+                      cardChild: const IconContent(
+                        icon: Icons.female,
+                        label: 'FEMALE',
+                      ),
                     ),
                   ),
                 ),
               ],
             ),
           ),
-          Expanded(
+          const Expanded(
             child: ReusableCard(
               color: kActiveCardColor,
             ),
           ),
-          Expanded(
+          const Expanded(
             child: Row(
               children: [
                 Expanded(
@@ -63,11 +98,15 @@ class _InputPageState extends State<InputPage> {
                 ),
               ],
             ),
+          ),
+          Container(
+            color: kBottomContainerColor,
+            margin: const EdgeInsets.only(top: 10.0),
+            width: double.infinity,
+            height: kBottomContainerHeight,
           ),
         ],
       ),
     );
   }
 }
-
-
