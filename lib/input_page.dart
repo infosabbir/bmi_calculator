@@ -1,5 +1,6 @@
 import 'package:bmi_calculator/constants.dart';
 import 'package:bmi_calculator/icon_content.dart';
+import 'package:bmi_calculator/result_page.dart';
 import 'package:bmi_calculator/reusable_card.dart';
 import 'package:flutter/material.dart';
 
@@ -164,7 +165,7 @@ class _InputPageState extends State<InputPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         const Text(
-                          'WEIGHT',
+                          'AGE',
                           style: kLabelTextStyle,
                         ),
                         Text(age.toString(), style: kNumberTextStyle),
@@ -201,6 +202,20 @@ class _InputPageState extends State<InputPage> {
             margin: const EdgeInsets.only(top: 10.0),
             width: double.infinity,
             height: kBottomContainerHeight,
+            child: TextButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ResultPage(),
+                  ),
+                );
+              },
+              child: const Text(
+                'CALCULATE',
+                style: kLargeButtonTextStyle,
+              ),
+            ),
           ),
         ],
       ),
