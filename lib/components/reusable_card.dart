@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class ReusableCard extends StatelessWidget {
@@ -17,6 +16,7 @@ class ReusableCard extends StatelessWidget {
     return GestureDetector(
       onTap: onPress,
       child: Container(
+        padding: const EdgeInsets.all(15.0),
         margin: const EdgeInsets.all(15.0),
         decoration: BoxDecoration(
           color: color,
