@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
+enum Gender {
+  male,
+  female,
+}
+
 class InputPage extends StatefulWidget {
   const InputPage({super.key});
 
@@ -8,6 +13,10 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
+  Gender? selectedGender;
+  int weight = 20;
+  int height = 120;
+  
   @override
   Widget build(BuildContext context) {
     final colour = Theme.of(context).colorScheme;
